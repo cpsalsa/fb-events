@@ -82,15 +82,14 @@ function rewriteEvents() {
 }
 
 try {
-    fs.mkdirsync(path);
+    fs.mkdirSync(path);
 
     console.log('cloning');
     git.clone('https://process.env.UNAME:process.env.PASS@github.com/cpsalsa/cpsalsa.github.io.git', path);
     git.cwd(path);
     git.pull(rewriteEvents);
 } catch (e) {
-    console.log('not accessible');
-    // It isn't accessible, clone repo;
+    console.log('directory already exists');
     git.cwd(path);
     git.pull(rewriteEvents);
 }
