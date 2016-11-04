@@ -17,14 +17,7 @@
     "url": "https://github.com/cpsalsa/fb-events/issues"
   },
   "homepage": "https://github.com/cpsalsa/fb-events#readme",
-  "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.14.0",
-    "eslint": "^3.4.0",
-    "eslint-plugin-promise": "^2.0.1",
-    "eslint-plugin-react": "^6.2.0",
+  "dependencies": {
     "fb": "^1.1.1",
     "node-yaml": "^3.0.3",
     "simple-git": "^1.59.0"
