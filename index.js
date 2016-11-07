@@ -85,7 +85,7 @@ try {
     fs.mkdirSync(path);
 
     console.log('cloning');
-    git.clone('https://process.env.UNAME:process.env.PASS@github.com/cpsalsa/cpsalsa.github.io.git', path);
+    git.clone('https://'+ process.env.UNAME + ':' + process.env.PASS + '@github.com/cpsalsa/cpsalsa.github.io.git', path);
     git.cwd(path);
     git.pull(rewriteEvents);
 } catch (e) {
