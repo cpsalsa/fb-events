@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/cpsalsa/fb-events#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "fb": "^1.1.1",
-    "node-yaml": "^3.0.3",
-    "simple-git": "^1.59.0"
+    "redis": "^2.6.3"
   }
 }
