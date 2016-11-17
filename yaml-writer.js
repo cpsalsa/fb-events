@@ -81,10 +81,13 @@ function rewriteEvents() {
             }
 
             // finally push to repo
-            // console.log('committing');
-            // git.commit('Updated to latest events from facebook', '', '-a');
-            // console.log('pushing');
-            // git.push('origin', 'master');
+            console.log('committing');
+            git.commit('Updated to latest events from facebook', '', '-a');
+            console.log('pushing');
+            git.push(['--porcelain', 'origin', 'master'], function(err, data) {
+            	console.log('data:');
+            	console.log(data);
+            });
         });
     });
 }
