@@ -82,7 +82,12 @@ function rewriteEvents() {
 
             // finally push to repo
             console.log('committing and pushing');
-            git.commit('Updated to latest events from facebook')
+            git.commit('Updated to latest events from facebook', function(err, data) {
+	            	console.log('commit error:');
+	            	console.log(err);
+	            	console.log('commit data:');
+	            	console.log(data);
+	            })
             	.push(['--porcelain', 'origin', 'master'], function(err, data) {
 	            	console.log('data:');
 	            	console.log(data);
