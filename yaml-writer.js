@@ -95,7 +95,7 @@ function rewriteEvents() {
 try {
     fs.mkdirSync(path);
 
-    console.log('path');
+    console.log(path);
     console.log(process.env.UNAME + ':' + process.env.PASS);
     git.clone('https://'+ process.env.UNAME + ':' + process.env.PASS + '@github.com/cpsalsa/cpsalsa.github.io.git', path);
     git.cwd(path);
