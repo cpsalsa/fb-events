@@ -82,7 +82,9 @@ function rewriteEvents() {
 
             // finally push to repo
             console.log('committing and pushing');
-            git.commit('Updated to latest events from facebook', function(err, data) {
+            git.addConfig('user.name', process.env.USER_NAME)
+            	.addConfig('user.email', process.env.USER_EMAIL)
+            	.commit('Updated to latest events from facebook', function(err, data) {
 	            	console.log('commit error:');
 	            	console.log(err);
 	            	console.log('commit data:');
