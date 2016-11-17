@@ -20,6 +20,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "fb": "^1.1.1",
-    "redis": "^2.6.3"
+    "node-yaml": "^3.0.3",
+    "redis": "^2.6.3",
+    "simple-git": "^1.62.0"
   }
 }
