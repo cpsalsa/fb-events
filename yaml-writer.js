@@ -84,7 +84,7 @@ function rewriteEvents() {
             console.log('committing and pushing');
             git.addConfig('user.name', process.env.USER_NAME)
             	.addConfig('user.email', process.env.USER_EMAIL)
-            	.commit('Updated to latest events from facebook', function(err, data) {
+            	.commit('Updated to latest events from facebook', '_data/events.yml', function(err, data) {
 	            	console.log('commit error:');
 	            	console.log(err);
 	            	console.log('commit data:');
