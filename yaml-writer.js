@@ -11,22 +11,32 @@ function getEvents(data) {
             id: value.id,
             title: value.name,
             when: value.start_time,
-            where: {
-                name: value.place.name,
-            },
-            image: {
-                url: value.cover.source,
-                alt: value.name,
-            },
         };
 
-        if (value.place.location) {
-            item.where.latitude = value.place.location.latitude;
-            item.where.longitude = value.place.location.longitude;
+        if (value.place) {
+            item.where = {
+                name: value.place.name,
+            };
+
+            if (value.place.location) {
+                item.where.latitude = value.place.location.latitude;
+                item.where.longitude = value.place.location.longitude;
+            }
+
+            if (value.place.name === 'CPSalsa') {
+                item.where.name = 'Cal Poly Bld 5 Rm 225'
+            }
         }
 
-        if (value.place.name === 'CPSalsa') {
-            item.where.name = 'Cal Poly Bld 5 Rm 225'
+        if (value.cover) {
+            item.image = {
+                url: value.cover.source,
+                alt: value.name,
+            };
+        } else {
+            item.image = {
+                url: '/images/hero-back2.jpg',
+            };
         }
 
         return item;
