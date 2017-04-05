@@ -6,7 +6,16 @@ var fs = require('fs');
 var path = 'cpsalsa-site';
 
 function getEvents(data) {
-    var json = data.map(function(value) {
+    var now = new Date();
+
+    var events = data.filter(function(event) {
+        var date = new Date(event.start_time);
+        if (date >= now) {
+            return true;
+        }
+
+        return false;
+    }).map(function(value) {
         var item = {
             id: value.id,
             title: value.name,
@@ -35,24 +44,12 @@ function getEvents(data) {
             };
         } else {
             item.image = {
-                url: '/images/hero-back2.jpg',
+                url: '/images/hero-back1.jpg',
             };
         }
 
         return item;
     });
-
-    // confine to the dates past the current
-    var now = new Date();
-    var events = [];
-
-    for (var i = 0; i < json.length; i++) {
-        var event = json[i];
-        var date = new Date(event.when);
-        if (date >= now) {
-            events.push(event);
-        }
-    }
 
     return events;
 }
@@ -92,18 +89,18 @@ function rewriteEvents() {
 
             // finally push to repo
             console.log('committing and pushing');
-            git.addConfig('user.name', process.env.USER_NAME)
-            	.addConfig('user.email', process.env.USER_EMAIL)
-            	.commit('Updated to latest events from facebook', '_data/events.yml', function(err, data) {
-	            	console.log('commit error:');
-	            	console.log(err);
-	            	console.log('commit data:');
-	            	console.log(data);
-	            })
-            	.push(['--porcelain', 'origin', 'master'], function(err, data) {
-	            	console.log('data:');
-	            	console.log(data);
-	            });
+            // git.addConfig('user.name', process.env.USER_NAME)
+            // 	.addConfig('user.email', process.env.USER_EMAIL)
+            // 	.commit('Updated to latest events from facebook', '_data/events.yml', function(err, data) {
+	           //  	console.log('commit error:');
+	           //  	console.log(err);
+	           //  	console.log('commit data:');
+	           //  	console.log(data);
+	           //  })
+            // 	.push(['--porcelain', 'origin', 'master'], function(err, data) {
+	           //  	console.log('data:');
+	           //  	console.log(data);
+	           //  });
         });
     });
 }
