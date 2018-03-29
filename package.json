@@ -2,12 +2,12 @@
   "name": "fb-events",
   "version": "1.0.0",
   "engines": {
-    "node": "6.11.1"
+    "node": "8.9.4"
   },
   "description": "",
-  "main": "index.js",
+  "main": "yaml-writer.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node yaml-writer.js"
   },
   "repository": {
     "type": "git",
