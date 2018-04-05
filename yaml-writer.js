@@ -98,7 +98,7 @@ function rewriteEvents() {
             // get the slosx events
             fb.api('v2.12/slosx/events', {
                 fields: ['id', 'name', 'place', 'cover', 'start_time', 'event_times', 'interested_count'],
-                // time_filter: 'upcoming'
+                time_filter: 'upcoming'
             }, res => {
                 let slosxEvents = getEvents(res.data);
                 let combinedEvents = [...events, ...slosxEvents];
